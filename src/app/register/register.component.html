@@ -1,0 +1,122 @@
+<div class="cotaniner w-75 m-auto mt-5">
+  <h2 class="fw-bold">Registerion Form</h2>
+  <div *ngIf="errorMessage.length > 0" class="alert alert-danger">
+    {{ errorMessage }}
+  </div>
+  <form [formGroup]="registerForm" (ngSubmit)="handleRegister(registerForm)">
+    <label for="name">UserName</label>
+    <input type="text" class="form-control my-3 mb-2" formControlName="name" />
+    <div
+      class="alert alert-danger text-capitalize"
+      *ngIf="
+        registerForm.get('name')?.touched && registerForm.get('name')?.errors
+      "
+    >
+      <p *ngIf="registerForm.get('name')?.getError('required')">
+        Username Is Required
+      </p>
+      <p *ngIf="registerForm.get('name')?.getError('minLength') == null">
+        at least 3 letters
+      </p>
+      <p *ngIf="registerForm.get('name')?.getError('maxLength') == null">
+        max chracters is 50
+      </p>
+    </div>
+
+    <label for="email">Email</label>
+    <input
+      type="email"
+      class="form-control my-3 mb-2"
+      formControlName="email"
+    />
+    <div
+      class="alert alert-danger text-capitalize"
+      *ngIf="
+        registerForm.get('email')?.touched && registerForm.get('email')?.errors
+      "
+    >
+      <p *ngIf="registerForm.get('email')?.getError('required')">
+        Email Is Required
+      </p>
+      <p *ngIf="registerForm.get('email')?.getError('minLength') == null">
+        at least 7 letters
+      </p>
+    </div>
+
+    <label for="password">Password</label>
+    <input
+      type="password"
+      class="form-control my-3 mb-2"
+      formControlName="password"
+    />
+    <div
+      class="alert alert-danger text-capitalize"
+      *ngIf="
+        registerForm.get('password')?.touched &&
+        registerForm.get('password')?.errors
+      "
+    >
+      <p *ngIf="registerForm.get('password')?.getError('required')">
+        password Is Required
+      </p>
+      <p *ngIf="registerForm.get('password')?.getError('pattern')">
+        password must contain letter and numbers
+      </p>
+    </div>
+
+    <label for="rePassword">RePassword</label>
+    <input
+      type="password"
+      class="form-control my-3 mb-2"
+      formControlName="rePassword"
+    />
+    <div
+      class="alert alert-danger text-capitalize"
+      *ngIf="
+        registerForm.get('rePassword')?.touched &&
+        registerForm.get('rePassword')?.errors
+      "
+    >
+      <p *ngIf="registerForm.get('rePassword')?.getError('required')">
+        RePassword Is Required
+      </p>
+    </div>
+
+    <label for="phone">Email</label>
+    <input
+      type="phone"
+      class="form-control my-3 mb-2"
+      formControlName="phone"
+    />
+    <div
+      class="alert alert-danger text-capitalize"
+      *ngIf="
+        registerForm.get('phone')?.touched && registerForm.get('phone')?.errors
+      "
+    >
+      <p *ngIf="registerForm.get('phone')?.getError('required')">
+        Phone Is Required
+      </p>
+      <p *ngIf="registerForm.get('phone')?.getError('pattern')">
+        must use egyptian phone number
+      </p>
+    </div>
+
+    <P class="text-center fs-6 mt-3"
+    >Already Have An Account ?
+    <span
+      ><a routerLink="/login" class="text-primary"
+        >Log In</a
+      ></span
+    ></P
+  >
+  <button
+    [disabled]="registerForm.invalid"
+    type="submit"
+    class="btn btn-warning w-25 fs-5 button ms-auto d-block text-center mb-5 click"
+  >
+    <i *ngIf="isLoading" class="fas fa-spinner fa-spin click"></i>
+    <span class="click" *ngIf="!isLoading">Register</span>
+  </button>
+  </form>
+</div>
