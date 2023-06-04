@@ -1,6 +1,6 @@
-<div class="container">
-  <h2 class="text-center">Home component</h2>
-
+<app-homeslider [slides]="trendingMovies"></app-homeslider>
+<div class="container mt-5 pt-5 px-4">
+<a [routerLink]="['/moviedetailsgit ', '123213']">
   <div class="row m-auto text-center g-4">
     <div
       *ngFor="let movie of trendingMovies"
@@ -26,7 +26,7 @@
 
             <span
               [class.bg-warning]="movie.vote_average > 6.9"
-              class="movie-rating position-absolute fw-bold px-3 bg-secondary"
+              class="movie-rating position-absolute fw-bold px-4 py-1 fs-5 bg-secondary opacity-75"
               >{{ movie.vote_average | number : "1.1-1" }}</span
             >
           </div>
@@ -34,4 +34,5 @@
       </div>
     </div>
   </div>
+</a>
 </div>

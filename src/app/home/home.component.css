@@ -1,6 +1,13 @@
+.container{
+  min-width: 90%;
+}
+
+.activeL{
+  color: aquamarine !important;
+}
 .movie-rating {
-  top: 5px;
-  right: 17px;
+  top: 20px;
+  right: 20px;
 }
 
 .limitTextHeight {

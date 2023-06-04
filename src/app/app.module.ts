@@ -1,3 +1,4 @@
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -17,6 +18,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { SliderComponent } from './slider/slider.component';
 import { MoviedetailsComponent } from './moviedetails/moviedetails.component';
+import { CarouselModule } from 'ngx-owl-carousel-o';
+import { HomesliderComponent } from './homeslider/homeslider.component';
 
 
 
@@ -34,13 +37,16 @@ import { MoviedetailsComponent } from './moviedetails/moviedetails.component';
     ActorsComponent,
     NotFoundComponent,
     SliderComponent,
-    MoviedetailsComponent
+    MoviedetailsComponent,
+    HomesliderComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    CarouselModule
     
   ],
   providers: [],

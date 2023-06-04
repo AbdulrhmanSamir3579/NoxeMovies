@@ -2,3 +2,6 @@
 .activeL{
   color: aquamarine !important;
 }
+.navbar{
+  z-index: 9999;
+}
