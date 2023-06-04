@@ -1,38 +1,40 @@
 <app-homeslider [slides]="trendingMovies"></app-homeslider>
 <div class="container mt-5 pt-5 px-4">
-<a [routerLink]="['/moviedetailsgit ', '123213']">
   <div class="row m-auto text-center g-4">
     <div
       *ngFor="let movie of trendingMovies"
       class="col-md-3 movie m-0 mb-4 position-relative"
     >
-      <div class="movie-poster position-relative m-0">
-        <img
-          class="w-100 movie-img"
-          [src]="imgPrefix + movie.poster_path"
-          alt=""
-        />
-        <div class="movie-info w-100 position-absolute">
-          <div class="movie-layer">
-            <div class="movie-details position-absolute p-2">
-              <div class="text-center sm-info d-flex flex-column justify-content-center align-items-center">
-                <span class="bg-success m-2 ">{{
-                  movie.original_language
-                }}</span>
-                
-                <h3 class="h4 fw-bold w-100 m-2">{{ movie.title }}</h3>
-              </div>
-            </div>
+      <a [routerLink]="['/moviedetails', movie.id, movie.media_type]">
+        <div class="movie-poster position-relative m-0">
+          <img
+            class="w-100 movie-img"
+            [src]="imgPrefix + movie.poster_path"
+            alt=""
+          />
+          <div class="movie-info w-100 position-absolute">
+            <div class="movie-layer">
+              <div class="movie-details position-absolute p-2">
+                <div
+                  class="text-center sm-info d-flex flex-column justify-content-center align-items-center"
+                >
+                  <span class="bg-success m-2">{{
+                    movie.original_language
+                  }}</span>
 
-            <span
-              [class.bg-warning]="movie.vote_average > 6.9"
-              class="movie-rating position-absolute fw-bold px-4 py-1 fs-5 bg-secondary opacity-75"
-              >{{ movie.vote_average | number : "1.1-1" }}</span
-            >
+                  <h3 class="h4 fw-bold w-100 m-2">{{ movie.title }}</h3>
+                </div>
+              </div>
+
+              <span
+                [class.bg-warning]="movie.vote_average > 6.9"
+                class="movie-rating position-absolute fw-bold px-4 py-1 fs-5 bg-secondary opacity-75"
+                >{{ movie.vote_average | number : "1.1-1" }}</span
+              >
+            </div>
           </div>
-        </div>
-      </div>
+        </div></a
+      >
     </div>
   </div>
-</a>
 </div>
