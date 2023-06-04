@@ -1,0 +1,19 @@
+<div class="mb-4 slider position-relative">
+  <div class="slider-poster">
+    <owl-carousel-o [options]="customOptions">
+      <ng-container *ngFor="let slide of slides">
+        <ng-template carouselSlide>
+          <div class="slider-layer">
+            <img [src]="imgPrefix + slide.backdrop_path" [alt]="slide.title" />
+          </div>
+          <div class="slider-info position-absolute p-4">
+            <div class="slider-details position-absolute">
+              <h3 class="fw-bold fs-1 mb-1">{{ slide.original_title }}</h3>
+              <p class="lead fs-5 me-5">{{ slide.overview }}</p>
+            </div>
+          </div>
+        </ng-template>
+      </ng-container>
+    </owl-carousel-o>
+  </div>
+</div>
